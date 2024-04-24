@@ -41,7 +41,7 @@ while True:
                 for row in result:
                     print(row)
             if input("Proceed? y/n") == 'n':
-                break;
+                break
             offset += limit
     if choice == '2':
         name = input("Ievadi vārdu: ")
@@ -55,7 +55,11 @@ while True:
         # atlasīt top 5 vārdus pēc populāritātes
         # https://www.w3schools.com/sql/sql_orderby.asp (ORDER BY)
         # https://www.w3schools.com/sql/sql_top.asp (LIMIT)
-        pass
+        cursor.execute("SELECT * FROM names ORDER BY amount DESC LIMIT 5")
+        result = cursor.fetchall()
+        for row in result:
+                    print(row)
+
     elif choice == '4':
         gender = input("Ievadi VĪRIETIS/SIEVIETE: ")
         # Parādīt kopējo vārdu skaitu pēc dzimuma
